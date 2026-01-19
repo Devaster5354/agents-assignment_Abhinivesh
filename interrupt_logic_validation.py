@@ -60,7 +60,14 @@ def run(agent_speaking, text):
     print(f"agent_speaking={agent_speaking}, text='{text}', decision={decision}")
 
 
-print("=== INTERRUPTION LOGIC VALIDATION ===")
+import time
+print(
+    f"[{time.strftime('%H:%M:%S')}] "
+    f"agent_speaking={agent_speaking} | "
+    f"text='{text}' | "
+    f"decision={decision}"
+)
+
 
 run(True, "yeah")
 run(True, "ok hmm")
