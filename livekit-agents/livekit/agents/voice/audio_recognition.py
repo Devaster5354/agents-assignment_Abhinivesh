@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any, Literal, Optional, Protocol, Union, cast
 
 from opentelemetry import trace
+from .interrupt_logic import interrupt_logic
 
 from livekit import rtc
 
