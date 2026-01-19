@@ -1,5 +1,4 @@
-# Standalone validation of interruption logic
-# No LiveKit imports involved
+import time
 
 IGNORE_WORDS = {
     "yeah", "ok", "okay", "hmm", "uh", "uh-huh", "right", "aha"
@@ -57,17 +56,16 @@ def run(agent_speaking, text):
         logic.on_agent_speaking_end()
 
     decision = logic.resolve_transcript(text)
-    print(f"agent_speaking={agent_speaking}, text='{text}', decision={decision}")
+
+    print(
+        f"[{time.strftime('%H:%M:%S')}] "
+        f"agent_speaking={agent_speaking} | "
+        f"text='{text}' | "
+        f"decision={decision}"
+    )
 
 
-import time
-print(
-    f"[{time.strftime('%H:%M:%S')}] "
-    f"agent_speaking={agent_speaking} | "
-    f"text='{text}' | "
-    f"decision={decision}"
-)
-
+print("=== INTERRUPTION LOGIC VALIDATION ===")
 
 run(True, "yeah")
 run(True, "ok hmm")
