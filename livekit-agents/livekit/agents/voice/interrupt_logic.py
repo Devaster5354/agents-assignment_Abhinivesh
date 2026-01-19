@@ -52,3 +52,7 @@ class InterruptLogic:
         if soft_only:
             return "ignore"
         return "interrupt"
+
+
+interrupt_logic = InterruptLogic()
+# Loading an instance for testing purposes 
