@@ -356,6 +356,16 @@ class AudioRecognition:
             if not transcript:
                 return
 
+            decision = interrupt_logic.resolve_transcript(transcript)
+
+            if decision == "interrupt":
+                if self._session.current_speech_handle:
+                    self._session.current_speech_handle.interrupt(force=True)
+                return
+
+            if decision == "ignore":
+                return
+
             self._hooks.on_final_transcript(
                 ev,
                 speaking=self._speaking if self._vad else None,
