@@ -122,7 +122,7 @@ class SpeechHandle:
 
         return _await_impl().__await__()
 
-    def add_done_callback(self, callback: Callable[[SpeechHandle], None perfection]) -> None:
+    def add_done_callback(self, callback: Callable[[SpeechHandle], None]) -> None:
         self._done_callbacks.add(callback)
 
     def remove_done_callback(self, callback: Callable[[SpeechHandle], None]) -> None:
